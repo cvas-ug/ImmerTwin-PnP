@@ -1,8 +1,8 @@
 # ImmerTwin PnP
 
-Master package for ImmerTwin, a modular and plug and play teleoperation system inside of a digital Twin, that can be used with any kind of robotic arms. This repository contains both Baxter and UR Robot. 
+Master package for ImmerTwin, a modular and plug and play teleoperation system inside of a digital Twin, that can be used with any kind of robotic arms. This repository contains both Baxter and UR Robot.
 
-![docs/images/ImmerTwin.png](docs/images/ImmerTwin.png)
+![docs/images/Immertwin.png](docs/images/Immertwin.png)
 
 ## Paper Abstract
 
@@ -34,27 +34,31 @@ Source the local workspace and ROS2 for all the following steps except Isaac Sim
 
 More detailed version of the each part of setup can be found on the individual repositories.
 
-### [Unreal Engine](https://github.com/09ubberboy90/vr_publisher)
+Make sure to run `ImmerTwin/run_discovery_service.sh` as it is required to have ROS2 communicates with Unreal Engine. Make sure for all the following terminal to run `source ImmerTwin/fastdds_setup.sh` except for Isaac Sim
 
-Run SteamVR and make sure to reset the origin of the headset.
+### [Unreal Engine](https://github.com/09ubberboy90/ImmerTwin/tree/main)
 
-Build and source the workspace using `colcon build`
+Launch the project inside of Unreal Engine and press Run In VR once everything is configured
 
-Run this package by using:
+### Cameras
 
-`ros2 run vr_publish vr_publish`
+In order to view the state of the world the ZED2 camera node needs to be run. This can be achieved using
+
+`ros2 launch zed_wrapper zed_camera.launch.py camera_model:={model} node_name:={node_name} serial_number:={serial_number}`
 
 ### [Isaac Sim](https://github.com/09ubberboy90/telesim_isaac)
 
 BEWARE: Do not source ROS or have ROS sourced for the following !
 
-Find your isaac sim python path; It should be in `~/.local/share/ov/pkg/isaac_sim-2022.2.0/python.sh`. It will be referred henceforth as `isp`
+Find your isaac sim python path; It should be in `~/.local/share/ov/pkg/isaac_sim-2022.2.1/python.sh`. It will be referred henceforth as `isp`
 
 Then you need to export the path of the packages you are going to use so that Isaac Sim can load them.
 
 `export ROS_PACKAGE_PATH=ROS_PACKAGE_PATH:/opt/ros/galactic/share`
 
 Note: This will only load the packages installed through APT not the local packages. You need to add them manually (See below for example)
+
+You also need to run `export FASTRTPS_DEFAULT_PROFILES_FILE='ImmerTwin/fastdds_config.xml'`
 
 #### First Time Usage
 
@@ -134,23 +138,3 @@ ros2 launch baxter_bridge baxter_bridge_launch.py
 and in another terminal
 
 `ros run baxter_joint_controller controller`
-
-## Senseglove
-
-For the senseglove controller additional setup is needed:
-
-[Sensecom](ROS2/src/senseglove_ros2_ws/SenseCom/Linux/SenseCom.x86_64) needs to be running
-
-`ros2 launch senseglove_launch senseglove_hardware_demo.launch.py`
-
-and in another terminal
-
-`ros2 run t42_gripper_controller gripper_controller`
-
-## T42 gripper
-
-Master and Slave from [here](ROS2/src/t42_gripper/t42_gripper_controller/arduino) needs to be compiled on 2 different arduino connected through I2C. One of the arduino needs to be connected to the PC through USB, while the other needs to be connected to 2 Dynamyxel using the Dynamyxel shield.
-
-You need to update the port in the [position_controller](ROS2/src/t42_gripper/t42_gripper_controller/t42_gripper_controller/position_controller.py) and then you can run.
-
-`ros2 run t42_gripper_controller joint_sim_controller`
