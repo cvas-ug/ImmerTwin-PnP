@@ -1,0 +1,48 @@
+[submodule "ROS2/src/baxter_stack/baxter_common_ros2"]
+	path = ROS2/src/baxter_stack/baxter_common_ros2
+	url = https://github.com/09ubberboy90/baxter_common_ros2.git
+[submodule "ROS2/src/baxter_stack/baxter_joint_controller"]
+	path = ROS2/src/baxter_stack/baxter_joint_controller
+	url = https://github.com/09ubberboy90/baxter_joint_controller.git
+	branch = ros2
+[submodule "ROS1/src/baxter"]
+	path = ROS1/src/baxter
+	url = https://github.com/RethinkRobotics/baxter.git
+[submodule "ROS1/src/baxter_common"]
+	path = ROS1/src/baxter_common
+	url = https://github.com/RethinkRobotics/baxter_common.git
+[submodule "ROS1/src/baxter_examples"]
+	path = ROS1/src/baxter_examples
+	url = https://github.com/RethinkRobotics/baxter_examples.git
+[submodule "ROS1/src/baxter_tools"]
+	path = ROS1/src/baxter_tools
+	url = https://github.com/09ubberboy90/baxter_tools.git
+[submodule "ROS1/src/baxter_joint_controller"]
+	path = ROS1/src/baxter_joint_controller
+	url = https://github.com/09ubberboy90/baxter_joint_controller.git
+	branch = ros1
+[submodule "ROS2/src/isaac_sim"]
+	path = ROS2/src/isaac_sim
+	url = https://github.com/09ubberboy90/telesim_isaac.git
+[submodule "ROS1/src/baxter_interface"]
+	path = ROS1/src/baxter_interface
+	url = https://github.com/09ubberboy90/baxter_interface.git
+[submodule "ROS1/src/baxter_joint_controller"]
+	path = ROS1/src/baxter_joint_controller
+	url = https://github.com/09ubberboy90/baxter_joint_controller.git
+	branch = ros1
+[submodule "ROS2/src/ur_isaac"]
+	path = ROS2/src/ur_isaac
+	url = https://github.com/09ubberboy90/ur_isaac.git
+[submodule "ROS2/src/ur_robotiq"]
+	path = ROS2/src/ur_robotiq
+	url = https://github.com/09ubberboy90/ur_robotiq.git
+[submodule "ROS2/src/zed-ros2-wrapper"]
+	path = ROS2/src/zed-ros2-wrapper
+	url = https://github.com/09ubberboy90/zed-ros2-wrapper.git
+[submodule "ROS2/src/unreal_link"]
+	path = ROS2/src/unreal_link
+	url = https://github.com/09ubberboy90/unreal_link.git
+[submodule "ImmerTwin"]
+	path = ImmerTwin
+	url = https://github.com/09ubberboy90/ImmerTwin.git
